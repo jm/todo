@@ -1,10 +1,7 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :lists do |list|
-    list.resources :items
+Todo::Application.routes.draw do
+  resources :lists do
+    resources :items
   end
-  
-  map.root :controller => 'lists', :action => 'index'
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  match '/' => 'lists#index'
 end
