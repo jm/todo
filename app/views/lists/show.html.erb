@@ -14,7 +14,7 @@
 
 <p>Add item:</p>
 
-<% form_for([@list, @new_item]) do |f| %>
+<%= form_for([@list, @new_item]) do |f| %>
   <%= f.text_field :text %>
   
   <%= f.submit "Add" %>
