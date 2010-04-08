@@ -1,0 +1,726 @@
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:46:13) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: lists: SELECT * FROM "lists" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: lists: SELECT * FROM "lists" ):
+  app/controllers/lists_controller.rb:3:in `index'
+
+Rendered rescues/_trace (31.0ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (33.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100326000217)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;36;1mSQL (13.5ms)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100326000217')[0m
+Migrating to CreateItems (20100408043142)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100408043142')[0m
+Migrating to CreateLists (20100408043158)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("items")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("lists")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:46:22) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 52ms (View: 44, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:48:11) [GET]
+  [4;35;1mList Load (0.4ms)[0m   [0mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:48:20) [GET]
+  [4;36;1mList Load (0.3ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:48:58) [GET]
+  [4;35;1mList Load (0.3ms)[0m   [0mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ListsController#new (for 127.0.0.1 at 2010-04-07 23:49:00) [GET]
+Rendering template within layouts/application
+Rendering lists/new
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/lists/new]
+
+
+Processing ListsController#new (for 127.0.0.1 at 2010-04-07 23:49:19) [GET]
+Rendering template within layouts/application
+Rendering lists/new
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/lists/new]
+
+
+Processing ListsController#create (for 127.0.0.1 at 2010-04-07 23:49:25) [POST]
+  Parameters: {"list"=>{"name"=>"Things to do"}, "commit"=>"Create list", "authenticity_token"=>"C6G99625Dg8fwiEBarEgaFOn7jizhDZi74QYC/Uh6us="}
+  [4;36;1mList Create (0.4ms)[0m   [0;1mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES('Things to do', '2010-04-08 04:49:25', '2010-04-08 04:49:25')[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/lists]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:49:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:27) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:36) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:44) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:49) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:54) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:55) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:49:56) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:50:02) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 70ms (View: 65, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:50:06) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:50:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:50:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Load (0.1ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:51:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:51:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#index (for 127.0.0.1 at 2010-04-07 23:51:30) [GET]
+  [4;36;1mList Load (0.4ms)[0m   [0;1mSELECT * FROM "lists" [0m
+Rendering template within layouts/application
+Rendering lists/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/lists]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:51:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:52:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #17 of app/views/lists/show.html.erb:
+14: 
+15: <p>Add item:</p>
+16: 
+17: <% form_for(@new_item) do |f| %>
+18:   <%= f.text_field :text %>
+19:   
+20:   <%= f.submit %>
+
+    app/views/lists/show.html.erb:17
+    app/controllers/lists_controller.rb:14:in `show'
+
+Rendered rescues/_trace (35.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:52:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #17 of app/views/lists/show.html.erb:
+14: 
+15: <p>Add item:</p>
+16: 
+17: <% form_for(@new_item) do |f| %>
+18:   <%= f.text_field :text %>
+19:   
+20:   <%= f.submit_tag %>
+
+    app/views/lists/show.html.erb:17
+    app/controllers/lists_controller.rb:14:in `show'
+
+Rendered rescues/_trace (33.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:52:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:52:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 73ms (View: 7, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:52:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:53:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.1ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+
+ActionView::TemplateError (undefined method `items_path' for #<ActionView::Base:0x1042790c0>) on line #17 of app/views/lists/show.html.erb:
+14: 
+15: <p>Add item:</p>
+16: 
+17: <% form_for(@new_item) do |f| %>
+18:   <%= f.text_field :text %>
+19:   
+20:   <%= f.submit "Add" %>
+
+    app/views/lists/show.html.erb:17
+    app/controllers/lists_controller.rb:15:in `show'
+
+Rendered rescues/_trace (91.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:53:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+
+ActionView::TemplateError (undefined method `text' for #<List:0x10426d018>) on line #18 of app/views/lists/show.html.erb:
+15: <p>Add item:</p>
+16: 
+17: <% form_for(@list, @new_item) do |f| %>
+18:   <%= f.text_field :text %>
+19:   
+20:   <%= f.submit "Add" %>
+21: <% end %>
+
+    app/views/lists/show.html.erb:18
+    app/views/lists/show.html.erb:17
+    app/controllers/lists_controller.rb:15:in `show'
+
+Rendered rescues/_trace (36.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:54:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2010-04-07 23:55:22) [POST]
+  Parameters: {"commit"=>"Add", "authenticity_token"=>"C6G99625Dg8fwiEBarEgaFOn7jizhDZi74QYC/Uh6us=", "list_id"=>"1", "item"=>{"text"=>"Wat!"}}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("created_at", "updated_at", "text", "list_id") VALUES('2010-04-08 04:55:22', '2010-04-08 04:55:22', 'Wat!', 1)[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/lists/1/items]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:55:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:56:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `item_path' for #<ActionView::Base:0x1041d3440>) on line #8 of app/views/lists/show.html.erb:
+5: <% else %>
+6:   <ul>
+7:     <% @list.items.each do |item| %>
+8:       <li><%= item.text %> [<%= link_to 'complete', item_path, :method => :delete %>]</li>
+9:     <% end %>
+10:   </ul>
+11: <% end %>
+
+    app/views/lists/show.html.erb:8
+    app/views/lists/show.html.erb:7
+    app/controllers/lists_controller.rb:15:in `show'
+
+Rendered rescues/_trace (91.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:56:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.1ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ItemsController#destroy (for 127.0.0.1 at 2010-04-07 23:56:10) [DELETE]
+  Parameters: {"authenticity_token"=>"C6G99625Dg8fwiEBarEgaFOn7jizhDZi74QYC/Uh6us=", "id"=>"1", "list_id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1 AND ("items".list_id = 1)) [0m
+  [4;36;1mItem Destroy (0.2ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/lists/1/items/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:56:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Load (0.1ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;36;1mItem Load (0.1ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:56:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;36;1mItem Load (0.1ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2010-04-07 23:56:32) [POST]
+  Parameters: {"commit"=>"Add", "authenticity_token"=>"C6G99625Dg8fwiEBarEgaFOn7jizhDZi74QYC/Uh6us=", "list_id"=>"1", "item"=>{"text"=>"whatty"}}
+  [4;35;1mList Load (0.2ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+  [4;36;1mItem Create (0.6ms)[0m   [0;1mINSERT INTO "items" ("created_at", "updated_at", "text", "list_id") VALUES('2010-04-08 04:56:32', '2010-04-08 04:56:32', 'whatty', 1)[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 12ms (DB: 1) | 302 Found [http://localhost/lists/1/items]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:56:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Load (0.1ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://localhost/lists/1]
+
+
+Processing ItemsController#destroy (for 127.0.0.1 at 2010-04-07 23:56:34) [DELETE]
+  Parameters: {"authenticity_token"=>"C6G99625Dg8fwiEBarEgaFOn7jizhDZi74QYC/Uh6us=", "id"=>"2", "list_id"=>"1"}
+  [4;35;1mList Load (0.1ms)[0m   [0mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 2 AND ("items".list_id = 1)) [0m
+  [4;35;1mItem Destroy (0.2ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/lists/1/items/2]
+
+
+Processing ListsController#show (for 127.0.0.1 at 2010-04-07 23:56:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Load (0.2ms)[0m   [0;1mSELECT * FROM "lists" WHERE ("lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering lists/show
+  [4;35;1mItem Load (0.1ms)[0m   [0mSELECT * FROM "items" WHERE ("items".list_id = 1) [0m
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (2.5ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "list_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (2.7ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043158')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100326000217')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100408043142')[0m

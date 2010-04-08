@@ -1,0 +1,24 @@
+<h1><%=h @list.name %></h1>
+
+<% if @list.items.blank? %>
+  <em>No items in this list</em>
+<% else %>
+  <ul>
+    <% @list.items.each do |item| %>
+      <li><%= item.text %> [<%= link_to 'complete', list_item_path(@list, item), :method => :delete %>]</li>
+    <% end %>
+  </ul>
+<% end %>
+
+<hr noshade />
+
+<p>Add item:</p>
+
+<% form_for([@list, @new_item]) do |f| %>
+  <%= f.text_field :text %>
+  
+  <%= f.submit "Add" %>
+<% end %>
+
+<hr noshade />
+<%= link_to 'Return to list index', lists_path %>

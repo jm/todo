@@ -1,0 +1,14 @@
+<h1>Create a list</h1>
+
+<% form_for(@list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Create list' %> or <%= link_to 'Cancel', lists_path %>
+  </p>
+<% end %>
+

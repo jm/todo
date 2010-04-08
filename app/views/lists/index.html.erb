@@ -1,0 +1,10 @@
+<h1>Your lists</h1>
+<hr noshade />
+
+<% @lists.each do |list| %>
+  <h2><%= link_to list.name, list %></h2>
+  <p><%= list.items.size %> items</p>
+  <hr noshade />
+<% end %>
+
+<%= link_to 'Create a list', new_list_path %>
